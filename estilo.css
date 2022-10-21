@@ -1,0 +1,47 @@
+body{
+    background-color: #EEF9BF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.titulo{
+    background: #EEF9BF;
+    height: 150px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.texto{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 66px;
+    color: #75B79E;
+}
+/*---------------------------------------------------*/
+.cartas{
+    width: 872px;
+    background-color: aquamarine;
+    display: flex;
+    justify-content: space-between;
+    
+    flex-wrap: wrap;
+}
+.carta{
+    width: 117px;
+    height: 146px;
+    background-color:#A7E9AF;
+    border: 1px solid #99CEA8;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-bottom: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.papagaio{
+    width: 100px;
+}
