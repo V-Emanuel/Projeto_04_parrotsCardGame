@@ -23,11 +23,13 @@ body{
 }
 /*---------------------------------------------------*/
 .cartas{
+    height: 326px;
     width: 872px;
     background-color: aquamarine;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    
+    align-items:center;
     flex-wrap: wrap;
 }
 .carta{
@@ -37,7 +39,6 @@ body{
     border: 1px solid #99CEA8;
     border-radius: 5px;
     box-sizing: border-box;
-    margin-bottom: 34px;
     display: flex;
     justify-content: center;
     align-items: center;
