@@ -42,7 +42,15 @@ li{
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all 1s;
 }
 .papagaio{
     width: 100px;
+}
+li:hover{
+    cursor: pointer;
+}
+.virada{
+    background-color: red;
+    transform: rotateY(180deg);
 }
