@@ -22,7 +22,7 @@ body{
     color: #75B79E;
 }
 /*---------------------------------------------------*/
-.cartas{
+ul{
     height: 326px;
     width: 872px;
     background-color: aquamarine;
@@ -32,7 +32,7 @@ body{
     align-items:center;
     flex-wrap: wrap;
 }
-.carta{
+li{
     width: 117px;
     height: 146px;
     background-color:#A7E9AF;
