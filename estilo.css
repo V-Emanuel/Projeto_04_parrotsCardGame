@@ -43,14 +43,31 @@ li{
     justify-content: center;
     align-items: center;
     transition: all 1s;
-}
-.papagaio{
-    width: 100px;
+    position: relative;
 }
 li:hover{
     cursor: pointer;
 }
 .virada{
     background-color: red;
+    transform: rotateY(180deg);
+}
+.face {
+    width: 70%;
+    height: 70%;
+    background-color: #A7E9AF;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    /*backface-visibility: hidden;*/
+    transition: all .5s;
+    transform-style: preserve-3d;
+}
+.frente{
+    transform: rotateY(-180deg);
+}
+.verso{
     transform: rotateY(180deg);
 }
