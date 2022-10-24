@@ -73,3 +73,28 @@ img{
     width: 100px;
     height: 100px;
 }
+
+@media (max-width: 335px) {
+
+ul{
+  width: 150px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+li{
+  margin-bottom: 30px;
+}
+.texto{
+  font-size: 36px;
+}
+.titulo{
+  background: #EEF9BF;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+}
