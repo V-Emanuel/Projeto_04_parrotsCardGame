@@ -38,7 +38,21 @@ function adiciona_cartas(){
 }
 adiciona_cartas()
 
+
+
 function virar(elemento){
     elemento.classList.add("virada");
     contador++;
+    if(contador == 2){
+         setTimeout(desvirar, 1000);
+         contador = 0;
+    }
 }
+
+function desvirar(){
+    const cartas_viradas = document.querySelectorAll('.virada')
+        for(i = 0; i< cartas_embarlhadas.length; i++){
+            cartas_viradas[i]. classList. remove('virada');
+        } 
+}
+
