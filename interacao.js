@@ -1,20 +1,23 @@
-let contador = 0, i = 0, j = 0;
-let carta, primeira_carta, segunda_carta;
+let contador = 0;
+let carta;
+let carta_virada;
+let cont_finalizada = 0;
 let cartas_embarlhadas = [];
-let img_frente = ['<li data-tipo ="1" onclick = "virar(this)">' +'<div class = "frente face" ><img  src="./midia/explodyparrot.gif"/></img></div>',
-'<li data-tipo ="1" onclick = "virar(this)">' + '<div class = "frente face" ><img  src="./midia/explodyparrot.gif"/></img></div>',
-'<li data-tipo ="2" onclick = "virar(this)">' + '<div class = "frente face" ><img src="./midia/bobrossparrot.gif"/></img></div>',
-'<li data-tipo ="2" onclick = "virar(this)">' + '<div class = "frente face" ><img src="./midia/bobrossparrot.gif"/></img></div>',
-'<li data-tipo ="3" onclick = "virar(this)">' + '<div class = "frente face" ><img src="./midia/fiestaparrot.gif"/></img></div>',
-'<li data-tipo ="3" onclick = "virar(this)">' + '<div class = "frente face" ><img src="./midia/fiestaparrot.gif"/></img></div>',
-'<li data-tipo ="4" onclick = "virar(this)">' + '<div class = "frente face" ><img src="./midia/metalparrot.gif"/></img></div>',
-'<li data-tipo ="4" onclick = "virar(this)">' + '<div class = "frente face" ><img src="./midia/metalparrot.gif"/></img></div>',
-'<li data-tipo ="5" onclick = "virar(this)">' + '<div class = "frente face" ><img src="./midia/revertitparrot.gif"/></img></div>',
-'<li data-tipo ="5" onclick = "virar(this)">' + '<div class = "frente face" ><img src="./midia/revertitparrot.gif"/></img></div>',
-'<li data-tipo ="6" onclick = "virar(this)">' + '<div class = "frente face" ><img src="./midia/tripletsparrot.gif"/></img></div>',
-'<li data-tipo ="6" onclick = "virar(this)">' + '<div class = "frente face " ><img src="./midia/tripletsparrot.gif"/></img></div>',
-'<li data-tipo ="7" onclick = "virar(this)">' + '<div class = "frente face" ><img src="./midia/unicornparrot.gif"/></img></div>',
-'<li data-tipo ="7" onclick = "virar(this)">' + '<div class = "frente face" ><img src="./midia/unicornparrot.gif"/></img></div>'];
+let img_frente = ['<li class = "diferente" data-tipo ="1" onclick = "virar_1(this)">' +'<div class = "frente face" ><img  src="./midia/explodyparrot.gif"/></img></div>',
+'<li class = "diferente" data-tipo ="1" onclick = "virar_2(this)">' + '<div class = "frente face" ><img  src="./midia/explodyparrot.gif"/></img></div>',
+'<li class = "diferente" data-tipo ="2" onclick = "virar_1(this)">' + '<div class = "frente face" ><img src="./midia/bobrossparrot.gif"/></img></div>',
+'<li class = "diferente" data-tipo ="2" onclick = "virar_2(this)">' + '<div class = "frente face" ><img src="./midia/bobrossparrot.gif"/></img></div>',
+'<li class = "diferente" data-tipo ="3" onclick = "virar_1(this)">' + '<div class = "frente face" ><img src="./midia/fiestaparrot.gif"/></img></div>',
+'<li class = "diferente" data-tipo ="3" onclick = "virar_2(this)">' + '<div class = "frente face" ><img src="./midia/fiestaparrot.gif"/></img></div>',
+'<li class = "diferente" data-tipo ="4" onclick = "virar_1(this)">' + '<div class = "frente face" ><img src="./midia/metalparrot.gif"/></img></div>',
+'<li class = "diferente" data-tipo ="4" onclick = "virar_2(this)">' + '<div class = "frente face" ><img src="./midia/metalparrot.gif"/></img></div>',
+'<li class = "diferente" data-tipo ="5" onclick = "virar_1(this)">' + '<div class = "frente face" ><img src="./midia/revertitparrot.gif"/></img></div>',
+'<li class = "diferente" data-tipo ="5" onclick = "virar_2(this)">' + '<div class = "frente face" ><img src="./midia/revertitparrot.gif"/></img></div>',
+'<li class = "diferente" data-tipo ="6" onclick = "virar_1(this)">' + '<div class = "frente face" ><img src="./midia/tripletsparrot.gif"/></img></div>',
+'<li class = "diferente" data-tipo ="6" onclick = "virar_2(this)">' + '<div class = "frente face " ><img src="./midia/tripletsparrot.gif"/></img></div>',
+'<li class = "diferente" data-tipo ="7" onclick = "virar_1(this)">' + '<div class = "frente face" ><img src="./midia/unicornparrot.gif"/></img></div>',
+'<li class = "diferente" data-tipo ="7" onclick = "virar_2(this)">' + '<div class = "frente face" ><img src="./midia/unicornparrot.gif"/></img></div>'];
+
 function comparador() { 
 	return Math.random() - 0.5; 
 }
@@ -42,29 +45,45 @@ function adiciona_cartas(){
 }
 adiciona_cartas()
 
-function virar(elemento){
-    elemento.classList.add("virada");
+function virar_1(elemento_1){
+    elemento_1.classList.add("virada");
     contador++;
     if(contador == 2){
          setTimeout(desvirar, 1000);
          contador = 0;
     }
 }
-
+function virar_2(elemento_2){
+    elemento_2.classList.add("virada");
+    elemento_2.classList.remove("diferente");
+    contador++;
+    if(contador == 2){
+         setTimeout(desvirar, 1000);
+         contador = 0;
+    }
+}
 function desvirar(){
     let cartas_viradas = document.querySelectorAll('.virada');
-    for(i = 0; i< q_cartas.length; i++){
-        for(j = 0; j< q_cartas.length; j++){
-            if(cartas_viradas[0].getAttribute('data-tipo', i) !== cartas_viradas[1].getAttribute('data-tipo', j) && i!=j
-            && cartas_viradas[0].classList.contains('ja_passou') != true &&
-            cartas_viradas[1].classList.contains('ja_passou') != true) {     
-            cartas_viradas[0].classList.remove('virada')
+    if(cartas_viradas[0].getAttribute('data-tipo') == cartas_viradas[1].getAttribute('data-tipo')){
+        cartas_viradas[0].classList.add('igual');
+        cartas_viradas[1].classList.add('igual');
+        cartas_viradas[0].classList.remove('diferente');
+        cartas_viradas[1].classList.remove('diferente');
+        cont_finalizada ++;
+        console.log(const_finalizada);
+    }
+    if(cartas_viradas[0].getAttribute('data-tipo') !== cartas_viradas[1].getAttribute('data-tipo')){
+       if(cartas_viradas[0].classList.contains('igual') == false &&
+        cartas_viradas[1].classList.contains('igual') == false){
+            cartas_viradas[0].classList.remove('virada');
             cartas_viradas[1].classList.remove('virada');
-            }else if( i!=j){
-            cartas_viradas[0].classList.add('ja_passou');
-            cartas_viradas[1].classList.add('ja_passou');
-        }           
-     }
+    }
 }
 }
-
+function finalizada(){
+    let todas_viradas = document.querySelectorAll('.virada');
+    if(todas_viradas.length == q_cartas){
+        alert("finalizado");
+    }
+    console.log(todas_viradas);
+}
